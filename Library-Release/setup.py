@@ -1,0 +1,39 @@
+from setuptools import setup, find_packages
+
+with open("README.md") as f:
+    long_description = f.read()
+
+setup(
+    name="anylogic-alpyne",
+    version='1.2.1',
+    author="AnyLogic",
+    author_email="info@anylogic.com",
+    description="Run AnyLogic models exported from the RL Experiment",
+    long_description=long_description,
+    long_description_content_type="text/markdown",
+    url="https://github.com/the-anylogic-company/Alpyne",
+    classifiers=[
+        "Development Status :: 4 - Beta",
+        "Programming Language :: Python :: 3",
+        "Operating System :: OS Independent",
+        "License :: OSI Approved :: MIT License"
+    ],
+    packages=find_packages(),
+    include_package_data=True,
+    python_requires='>=3.10',
+    install_requires=[
+        "gymnasium",
+        "numpy",
+        "psutil",
+        "requests"
+    ],
+    extras_require={
+        'examples': [
+            "pandas",
+            "bayesian-optimization",
+            "stable-baselines3",
+            "openpyxl",
+            "tabulate"
+        ]
+    }
+)

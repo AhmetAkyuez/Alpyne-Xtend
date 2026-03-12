@@ -1,4 +1,0 @@
-anylogic-alpyne
-numpy>=1.19.5
-gymnasium
-stable-baselines3
