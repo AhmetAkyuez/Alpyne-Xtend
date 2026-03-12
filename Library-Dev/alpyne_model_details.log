@@ -1,0 +1,51 @@
+2025-08-01 13:18:27,198 - INFO - main_1 - <module> - Starting Alpyne script 'main.py'
+2025-08-01 13:18:27,199 - INFO - main_1 - <module> - Initializing AnyLogicSim (env_Base)...
+2025-08-01 13:18:27,406 - CRITICAL - main_1 - <module> - An unhandled error occurred in main execution: ModelError[path=, status=Failed to properly start the app. Check the logs., error=None, msg='']
+Traceback (most recent call last):
+  File "C:\Users\ahmet\Documents\ALPYNE\Alpyne-1.2.1\alpyne\sim.py", line 268, in _start_app
+    proc = subprocess.Popen(cmdline_args,
+                            stdin=subprocess.PIPE,  # Needed for quitting the app
+                            )
+  File "C:\Program Files\WindowsApps\PythonSoftwareFoundation.Python.3.13_3.13.1520.0_x64__qbz5n2kfra8p0\Lib\subprocess.py", line 1039, in __init__
+    self._execute_child(args, executable, preexec_fn, close_fds,
+    ~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+                        pass_fds, cwd, env,
+                        ^^^^^^^^^^^^^^^^^^^
+    ...<5 lines>...
+                        gid, gids, uid, umask,
+                        ^^^^^^^^^^^^^^^^^^^^^^
+                        start_new_session, process_group)
+                        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Program Files\WindowsApps\PythonSoftwareFoundation.Python.3.13_3.13.1520.0_x64__qbz5n2kfra8p0\Lib\subprocess.py", line 1554, in _execute_child
+    hp, ht, pid, tid = _winapi.CreateProcess(executable, args,
+                       ~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^
+                             # no special security
+                             ^^^^^^^^^^^^^^^^^^^^^
+    ...<4 lines>...
+                             cwd,
+                             ^^^^
+                             startupinfo)
+                             ^^^^^^^^^^^^
+FileNotFoundError: [WinError 2] Das System kann die angegebene Datei nicht finden
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "C:\Users\ahmet\Documents\ALPYNE\Alpyne-1.2.1\alpyne\sim.py", line 121, in __init__
+    self._proc = self._start_app(java_exe_path, model_path, port, java_log_level, log_id,
+                 ~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+                                 auto_finish, startup_delay, java_remote_debug)
+                                 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\ahmet\Documents\ALPYNE\Alpyne-1.2.1\alpyne\sim.py", line 272, in _start_app
+    raise RuntimeError("Java not found. Please check your system path.")
+RuntimeError: Java not found. Please check your system path.
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "c:\Users\ahmet\Documents\ALPYNE\2_TestingAlpyne\main_1.py", line 250, in <module>
+    env_Base = alpyne.sim.AnyLogicSim(model_path, py_log_level=logging.WARNING, java_log_level="WARNING") # Keep console cleaner
+  File "C:\Users\ahmet\Documents\ALPYNE\Alpyne-1.2.1\alpyne\sim.py", line 124, in __init__
+    raise ModelError(f"Failed to properly start the app. Check the logs.")
+alpyne.errors.ModelError: ModelError[path=, status=Failed to properly start the app. Check the logs., error=None, msg='']
+2025-08-01 13:18:27,436 - INFO - main_1 - <module> - Script 'main.py' finished.

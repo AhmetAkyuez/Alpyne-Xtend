@@ -1,0 +1,11 @@
+gymnasium
+numpy
+psutil
+requests
+
+[examples]
+pandas
+bayesian-optimization
+stable-baselines3
+openpyxl
+tabulate
